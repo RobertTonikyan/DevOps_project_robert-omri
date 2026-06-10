@@ -1,0 +1,49 @@
+name: Node.js CI Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+      - workflows
+      - app
+      - nginx
+
+jobs: 
+  code-quality-and-security:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Verify No Secret .env File is Committed
+        run: |
+          echo "Checking for forbidden .env file..."
+          if [ -f .env ]; then 
+            echo "ERROR: A real .env file detected in the repository structure."
+            exit 1
+          else 
+            echo "Success: No .env file detected in the repository structure."
+          fi
+
+      - name: Audit HTML Files for Required <title> Tag
+        run: |
+          echo "Auditing HTML files in app/public folder..."
+          
+          FAILED=0
+          
+          for file in app/public/*.html; do
+            [ -e "$file" ] || continue
+            
+            echo "Scanning $file..."
+            if ! grep -qi "<title>" "$file"; then 
+              echo "ERROR: Missing required <title> tag in $file"
+              FAILED=1
+            fi
+          done
+
+          if [ $FAILED -ne 0 ]; then
+            exit 1
+          else 
+            echo "Success: ALL HTML files contain a <title> tag"
+          fi
