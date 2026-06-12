@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>אודות המפתחים - ToDo List</title>
+    <style>
+        body {
+            font-family: system-ui, -apple-system, sans-serif;
+            background-color: #121212;
+            color: #e0e0e0;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            margin: 0;
+        }
+        .container {
+            background-color: #1e1e1e;
+            padding: 2.5rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+            width: 100%;
+            max-width: 450px;
+            text-align: center;
+        }
+        h1 { 
+            color: #ffffff; 
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #00adb5;
+            padding-bottom: 0.5rem;
+        }
+        h2 {
+            color: #00adb5;
+            font-size: 1.2rem;
+            margin-top: 1.5rem;
+        }
+        p {
+            line-height: 1.6;
+            color: #b0b0b0;
+            font-size: 0.95rem;
+        }
+        .team-section {
+            margin: 2rem 0;
+            text-align: right;
+            background: #252525;
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        .team-member {
+            padding: 0.5rem 0;
+            font-weight: bold;
+            color: #ffffff;
+        }
+        .team-member span {
+            color: #00adb5;
+            font-weight: normal;
+        }
+        .btn-back {
+            display: inline-block;
+            margin-top: 1.5rem;
+            padding: 10px 20px;
+            background-color: #00adb5;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+        .btn-back:hover { 
+            background-color: #007a80; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>אודות הפרויקט</h1>
+        <p>
+           זוג נרקומנים שהחליטו להפסיק עם חיי הסם ולקחת את החיים שלהם צעד אחד קדימה
+        </p>
+
+        <h2>צוות הפיתוח:</h2>
+        <div class="team-section">
+            <div class="team-member">👤 רוברט טוניקיאן <span>- מהנדס DevOps ופיתוח שרת</span></div>
+            <div class="team-member">👤 עומרי בלוזר <span>- מהנדס DevOps ואבטחת מידע</span></div>
+        </div>
+
+        <p style="font-size: 0.85rem; color: #777;">
+            טכנולוגיות: Node.js (Express) | PostgreSQL | Nginx | Docker Compose | GitHub Actions
+        </p>
+
+        <a href="/" class="btn-back">חזרה לרשימת המשימות</a>
+    </div>
+
+</body>
+</html>
